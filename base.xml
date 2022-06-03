@@ -1,0 +1,7 @@
+<mapper namespace="BASE">
+    <select id="USER.SELECT.TB_VU.001">
+    SELECT 
+        * 
+    FROM userTable
+    </select>
+</mapper>

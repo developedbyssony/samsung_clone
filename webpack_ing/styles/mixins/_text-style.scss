@@ -1,0 +1,86 @@
+@mixin main-sec-tit() {
+  font-size: $font-size-main-tit;
+  line-height: $line-height-main-tit;
+  margin-top: $margin-top-main-tit;
+  margin-bottom: $margin-bottom-main-tit;
+}
+
+/*
+.main-sec-tit {
+  @extend main-sec-tit;
+}
+*/
+
+@mixin main-sec-img-tit() {
+  font-size: $font-size-img-sec-tit;
+  line-height: $line-height-img-sec-tit;
+  margin-top: $margin-top-img-sec-tit;
+  margin-left: $margin-left-img-sec-tit;
+  margin-bottom: $margin-bottom-img-sec-tit;
+}
+/*
+.main-sec-img-tit {
+  @extend main-sec-img-tit;
+}*/
+
+@mixin my-sec-tit() {
+  font-size: $font-size-my-sec-tit;
+  max-height: $max-height-my-sec-tit;
+  line-height: $line-height-my-sec-tit;
+  margin-bottom: $margin-bottom-my-sec-tit;
+}
+/*
+.my-sec-tit {
+  @extend my-sec-tit;
+}*/
+
+@mixin my-page-tit() {
+  font-size: $font-size-my-tit;
+  font-weight: $font-weight-my-tit;
+  line-height: $line-height-my-tit;
+  margin-top: $margin-top-my-tit;
+  margin-bottom: $margin-bottom-my-tit;
+}
+/*
+.my-page-tit {
+  @extend my-page-tit;
+}*/
+
+@mixin btn-span($color: false) {
+  display: $display-btn-span;
+  font-size: $font-size-btn-span;
+  font-weight: $font-weight-btn-span;
+  text-align: $text-align-btn-span;
+  line-height: $line-height-btn-span;
+  @if (type-of($color) == color) {
+    color: $color;
+  }
+}
+
+@mixin footer($color: false) {
+  font-size: $font-size-footer;
+  @if (type-of($color) == color) {
+    color: $color;
+}}
+/*
+.footer {
+  @extend footer;
+}*/
+
+@mixin text-style($size, $color: false) {
+  @if ($size == 34) {
+    @include main-sec-tit;
+  }
+
+  @if ($size == 24) {
+    @include main-sec-img-tit;
+  }
+
+  @if ($size == 14) {
+    @include btn-span;
+  }
+
+  @if (type-of($color) == color) {
+    color: $color;
+  }
+}

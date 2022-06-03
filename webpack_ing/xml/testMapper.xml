@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="testMapper">  
+  <select id="testBasic1">
+    SELECT
+      *
+    FROM
+      userTable2 
+    WHERE
+      email =#{param}
+  </select>
+
+  <select id="testBasic2">
+    DELETE
+      *
+    FROM
+      userTable2 
+    WHERE
+      email =#{param}
+  </select>
+
+  <select id="testBasic3">
+    UPDATE
+      userTable2
+    SET
+      upassword = #{password},
+      address = #{address}, 
+      phoneNum = #{phoneNum}, 
+    WHERE
+      email =#{id}
+  </select>
+
+</mapper>

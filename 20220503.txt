@@ -1,0 +1,95 @@
+회원제 전환........
+
+게시판 수정 및 삭제 ->
+세션에 저장된 아이디 == 해당 글 정보의 글쓴이가 일치하는 경우만
+실행할 수 있도록 처리해야함 
+
+
+0) 
+글쓰기 : 로그인된 회원 모두가 글을 쓸 수 있음 -> 세션이 null인지 아닌지만 확인하면 됨
+
+boardInsertForm 접근 시, 로그인 하지 않은 사용자는
+
+로그인창으로 날려보내고, 로그인한 사용자만 글쓰기 페이지에
+접근가능하며, 동시에 글쓰기폼의 글쓴이 란은 
+로그인한 사용자 이름이 강제로 입력되게 해주세요.
+
+세션값 : ${sessionScope.s_id} <br />
+<c:if test="${sessionScope.s_id eq null}">
+=
+<sciprt>location.href="http://localhost:8181/MyFirstWeb/"</scirpt>
+
+
+<!-- form으로 글쓴이, 글제목, 본문 정보를 전송함. 목적지는 /boardInsert -->
+<form action="http://localhost:8181/MyFirstWeb/boardInsert.do" method="post">
+	글제목 : <input type="text" name="title">
+	글쓴이 : <input type="text" name="writer" value="${sessionScope.s_id}" readonly><br />
+	본문 :  <textarea cols="50" rows="15" name="content"></textarea><br />
+	<input type="submit" value="글쓰기">
+	<input type="reset" value="초기화">
+</form>
+<--------------------------------------------------------------------------------------------->
+
+
+1) 아닌 사람은 삭제/수정 버튼이 안 보이도록 detail에서 c:if
+상단에 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %> 삽입 (page~ urg-8 밑에)
+<c:if test="${sessionScope.s_id  eq board.writer }">
+	<!-- 삭제번호를 서블릿 boardDelete로 보내야함 -->
+	<form action="http://localhost:8181/s=MyFirstWeb/boardDetail.do>
+	<input type="hidden" name="board_num" value="${board.boardNum }">
+	<input type="submit" value="삭제">
+</c:if>
+
+
+2) 수정 및 삭제를 응용해서 글쓰기 버튼(getBoardList)이 로그인한 사용자에게만 보이도록 해주세요.
+상단에 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %> 삽입 (page~ urg-8 밑에)
+<c:if test="${sessionScope.s_id  eq board.writer }">
+<!-- 삭제번호를 서블릿 boardDelete로 보내야함 -->
+	<form action="http://localhost:8181/s=MyFirstWeb/getBoardList.do>
+	<input type="button" value="${board.boardNum }">
+	<inpu type="submit" value="삭제">
+</c:if>
+
+
+3) 
+<c:if test="${sessionScope != null}">
+	<a href="http://localhost:8181/MyFirstWeb/boardInsertForm.do"><button>글쓰기</button>
+</c:if>
+
+
+4) 세션에 있는 아이디 추출
+HttpSession session = request.getSession();
+String sId = (String)session.getAttribute("s_id");
+// boardDetail.jsp의 삭제버튼을 눌렀을 때 board_writer도 같이 히든으로 보내므로
+// board_writer를 받아서 비교할 수 있습니다.
+// 아이디가 일치하는 경우만 아래의 delete로직이 호출되도록 조건문으로 감싸주세요.
+String writer = request.getParameter("board_writer");
+if(sId != null && sId.equals(writer)) {
+	BoardDAO dao = BoardDAO.getInstance();
+	String strBoardNum = request.getParameter(
+	int boardNum = Integer.parseInt(strBoardNum);
+	// delete로직 호출
+	dao.boardDelete
+		}
+	}
+}
+
+
+ if(sId != null && sId.equals(writer)) {
+	BoardDAO dao = BoardDAO.getInstance();
+	String strBoardNum = request.getParameter(
+	int boardNum = Integer.parseInt(strBoardNum);
+	// delete로직 호출
+	dao.boardDelete
+		}
+
+
+BoardDAO dao = BoardDAO.getInstance();
+String strBoardNum = request.getParameter("board_num");
+int boardNum = Intefer.parseInt(strBoardNum);
+// delete로직 호출
+dao.boardDelete(boardNum);
+
+
+5) 
+

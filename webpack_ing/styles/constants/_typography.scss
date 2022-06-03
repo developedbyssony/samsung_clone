@@ -1,0 +1,32 @@
+$font-main: 'SamsungOne400', sans-serif;
+$font-main-bold: 'SamsungOne700', sans-serif;
+
+// 1)메인 - 섹션 소제목, 마이 - 페이지 대제목
+$font-size-main-tit: 34px;
+$line-height-main-tit: 42px;
+$font-weight-main-tit: 700;
+$margin-top-main-tit: 73px;
+$margin-bottom-main-tit: 21px;
+
+// 2)메인 - 이미지 배너 섹션의 사진 타이틀, 탭 메뉴 타이틀, 서비스 안내 섹션 타이틀
+$font-size-img-sec-tit: 24px;
+$line-height-img-sec-tit: 13px;
+$margin-top-img-sec-tit: 20px;
+$margin-left-img-sec-tit: 24px;
+$margin-bottom-img-sec-tit: 6px;
+
+// 4)메인 - 블로그 섹션 타이틀, 마이 서브 타이틀 (2 타입과 같이 폰트 사이즈 24)
+$font-size-my-sec-tit: 24px;
+$max-height-my-sec-tit: 62px;
+$line-height-my-sec-tit: 30px;
+$margin-bottom-my-sec-tit: 10px;
+
+// 버튼 안 글자
+$display-btn-span: inline-block;
+$line-height-btn-span: 1;
+$text-align-btn-span: center;
+$font-size-btn-span: 14px;
+$font-weight-btn-span: 700;
+
+// footer
+$font-size-footer: 14px;

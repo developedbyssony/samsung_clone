@@ -1,0 +1,287 @@
+html { height: 100%; }
+
+
+* {
+  box-sizing: border-box;
+  font-family: 'Noto Sans KR', sans-serif;
+}
+
+/* reset */
+
+button,
+input,
+select,
+textarea {
+  font-family: 'SamsungOne400', sans-serif;
+  font-size: 16px;
+  background-color: transparent;
+  border: 0; }
+
+button:focus,
+input:focus,
+select:focus,
+textarea:focus {
+    outline: none;
+    box-shadow: none; }
+
+a,
+button {
+  color:inherit;
+  text-decoration: none;
+  cursor: pointer; }
+
+ul,
+oi,
+li {
+  display: inline-block;
+  padding-left: none;
+  list-style: none; }
+
+/* reset */
+
+/* 공통 요소 */
+
+.btn {
+  font-size:15px;
+  border-radius: 22px;
+  margin:2.5px;
+  width: 280px;
+  height: 44px;
+  padding: 8px 20px 7px 20px; 
+  background-color: #ededed;
+  border: none;
+  vertical-align: middle; 
+}
+
+/* 공통 요소 */
+
+/* header */
+
+header {
+    position: fixed;
+    top:0;
+    left: 0;
+    width: 100%;
+    height: 81px;
+    background-color: #FFFFFF;
+}
+
+
+.logo img {
+  line-height: 81px;
+  width: 218.203px;
+  height: 18px;
+  margin-bottom: 0;
+  /* 헤더 중간에 정렬 */
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  margin-left:24px;
+}
+
+/* header */
+
+/* body */
+
+body {
+  background-color: #ededed;
+  min-height: 100%;
+  margin: 0;
+  font-family: sans-serif;
+}
+
+.col-12 .login {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /*
+  display: grid;
+  place-items: center;
+  margin-top: 200px;
+  */
+}
+
+.col-12 .button {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  /*
+  display: grid;
+  place-items: center;
+  margin-top: 200px;
+  */
+}
+
+.main-inner {
+  position: relative;
+  top:129px;
+  background-color: #fcfcfc;
+  border-radius: 26px;
+  padding: 60px 72px 48px 72px;
+  max-width: 640px;
+  margin: 0 auto;
+  margin-bottom: 118.34px;
+
+}
+
+.login_title {
+  margin-top: 30px;
+  font-size:39px;
+  line-height: 1.23;
+  color: #0074d4;
+  font-weight: 500;
+}
+
+.underline_text_section {
+
+}
+
+.underline_text {
+  margin-bottom: 36px;
+  width: 330px;
+  text-align: left;
+}
+
+.underline_text li {
+  margin-bottom: 8px;
+  font-size: 15px;
+  line-height: 1.6;
+  font-weight: bold;
+}
+
+.underline_text li a {
+  text-decoration: unset;
+}
+
+.button_bottom {
+  margin-bottom: 30px;
+}
+
+#id, #password {
+    font-size:18px;
+    line-height: 1.33;
+    width: 482px;
+    margin:2.5px;
+    height: 36px;
+    padding-left: 0;
+    border-bottom: 1px solid gray;
+    margin-top: 37px;
+    margin-bottom: 24px;
+}
+
+#id:focus {
+  border-color: #0072de;
+  border-width: 2px;
+  color: #0072de;
+}
+
+#textbox_top label {
+  display: none;
+}
+
+#textbox_top #textbox_top_text:hover {
+  display: unset;
+  /*
+  position: absolute;
+  top:-1px;
+  left: auto;
+  */
+  max-width: 100%;
+  font-size: 18px;
+  color: #0072de;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+#password:focus {
+  border-color: #0072de;
+  border-width: 2px;
+  color: #0072de;
+}
+
+#password label {
+
+}
+
+#input_form {
+  margin-bottom: 10px;
+}
+
+#btn {
+  min-width: 280px;
+  min-height: 44px;
+  background-color: #0074d4;
+  color: #FFFFFF;
+  font-size:17px;
+}
+
+#login_btn {
+  margin-top: 36px;
+  margin-bottom: 36px;
+}
+
+.one-footer {
+  padding: 16px 16px 30px 16px;
+  height: 118.34px;
+}
+
+.footer-inner {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin: 0 auto;
+  height: 72.344px;
+  font-size: 12px;
+}
+
+.footer-inner div:first-of-type {
+  flex-grow: 0;
+  flex-shrink: 0;
+  flex-basis: auto;
+  margin-top: 23px;
+}
+
+.footer-inner .footer-logo {
+  text-align: right;
+}
+
+.footer-inner .footer-logo img{
+  width: 201px;
+  height: auto;
+  opacity: 1;
+}
+
+.footer-address {
+  order: 3;
+  font-style: normal;
+  font-stretch: normal;
+  width: auto;
+  font-weight: 500;
+  font-size: 12px;
+  color: #888;
+}
+/*
+.btn {
+    margin-top: 10px;
+    border-radius: 22px;
+    background-color: #5d5d5d;
+    color: white;
+    font-size:2px;
+    padding: 5px;
+    line-height: 100%;
+    width:200px;
+    transition: box-shadow 400ms ease-in;
+}
+*/
+
+.btn:hover {
+  color:grey;
+  box-shadow: 2px 2px 2px orange;
+}
+
+h1 {
+  color: black;
+}
+
+/* body */

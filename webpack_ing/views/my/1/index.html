@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link rel="stylesheet" href="mypage_index.css">
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="http://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+
+    <link rel="icon" type="image/x-icon" href="favicon.ico" /> 
+    <link rel="shortcut icon" type="image/x-icon" href="favicon.ico" /> 
+
+    <script>
+        $(document).ready(function(){ 
+                $.ajax({
+                type:'GET',
+                url: 'http://localhost:8181/api',
+                dataType:'JSON'
+                }).done(function(data){
+                    console.log(data);
+                    $.each(data, function(i,item){
+                        let name= JSON.stringify(item[0].uname).replace(/"/g,'');
+                        document.querySelector('#name').placeholder = `${name}`;
+                    });
+                });
+            });
+    </script>
+    
+    <title>마이페이지 | 삼성전자 서비스</title>
+</head>
+<body>
+
+    <div class="container-fluid"> 
+        <!-- 공통 영역 : 헤더 -->
+          <!-- 1) GNB 마크업 -->
+            <div class="row">
+                <div class="app-header">
+                    <header class="header">
+                        <div class="ci">
+                            <h1 class="logo"></h1> 
+                        </div>
+                        <ul class="nav-menu">
+                        <li class="nav-menu-item"><a href="/">스스로해결</a></li>
+                        <li class="nav-menu-item"><a href="/">전문상담</a></li>
+                        <li class="nav-menu-item"><a href="/">서비스 안내</a></li>
+                        <li class="nav-menu-item"><a href="/">서비스 예약</a></li>
+                        <li class="nav-menu-item"><a href="/">소모품샵</a></li>
+                        <li class="nav-menu-item"><a href="/">고객의 소리</a></li>
+                        </ul>
+                        <div class="util">
+                            <h1 class="icon-member"></h1> 
+                            <h1 class="icon-cart"></h1>
+                            <h1 class="icon-search" id="mob-ic"></h1>
+                        </div>
+                        <!-- </div> -->
+                    </header>
+                </div>
+            </div>
+    </div>
+
+    <!-- 공통 영역 : 브레드 스크럼 -->
+    <div class="container-fluid">
+        <div class="row">
+            <div class="bread-scrum">
+            <ul>
+            <li>
+                <a href="#">
+                <i class="ic-home"></i>
+                </a>
+            </li>
+            <li>
+                <i class="ic-next"></i>
+            </li>
+            <li>
+                <span>마이페이지 브레드스크럼</span>
+            </li>
+            </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- 개별 영역 : 마이 페이지 시작 -->
+    <div class="content">
+    <div class="container-fluid">
+        <div class="container"> <!-- main top -->
+        <div class="row">
+            <div class="col-12 main-top">
+                <h3 class="my-title">이용 현황</h3>
+                <div class="my-memeber-zone">
+                    <h3>
+                        <strong id="name"></strong>님 안녕하세요.
+                    </h3> 
+                    <div>
+                        <a href="http://localhost:8181/my/update">회원정보 수정</a>  
+                        <a>나의 북마크<b class="color_sky">0</b></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <div class="my_sec_cont_box">
+                    <ul class="my_sec_cont_box_list">
+                        <li class="cont_box_list">
+                            <a>
+                                <div id="icon_box">
+                                <h1 class="service-info"></h1>
+                                </div>
+                                <span>서비스 현황</span>
+                            </a>
+                        </li>
+                        <li class="cont_box_list">
+                            <a>
+                                <div id="icon_box">
+                                <h1 class="online-info"></h1>
+                                </div>
+                                <span>온라인 상담 현황</span>
+                            </a>
+                        </li>
+                        <li class="cont_box_list">
+                            <a>
+                                <div id="icon_box">
+                                <h1 class="product-info"></h1>
+                                </div>
+                                <span>보유 제품 현황</span>
+                            </a>
+                        </li>
+                        <li class="cont_box_list">
+                            <a>
+                                <div id="icon_box">
+                                <h1 class="product-self"></h1>
+                                </div>
+                                <span>제품 자가 진단</span>
+                            </a>
+                        </li>
+                        <li class="cont_box_list">
+                            <a>
+                                <div id="icon_box">
+                                <h1 class="order-info "></h1>
+                                </div>
+                                <span>주문 배송 조회</span>
+                            </a>
+                        </li>
+                        <li class="cont_box_list">
+                            <a>
+                                <div id="icon_box">
+                                <h1 class="coupon-info"></h1>
+                                </div>
+                                <span>적립금/쿠폰</span>
+                            </a>
+                        </li>
+                        <li class="cont_box_list">
+                            <a>
+                                <div id="icon_box">
+                                <h1 class="likeproduct-info"></h1>
+                                </div>
+                                <span>관심상품</span>
+                            </a>
+                        </li>
+                        <li class="cont_box_list">
+                            <a>
+                                <div id="icon_box">
+                                <h1 class="answer-info"></h1>
+                                </div>
+                                <span>소모품샵1:1문의</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row my_page-info-table">
+            <div class="col-6">
+                <h3 class="tit-update tit_01">
+                    <a href="#">
+                        서비스 진행
+                    </a>
+                </h3>
+                <div class="my_cont_box">
+                <table class="table text-center">
+                    <thead>
+                        <tr>
+                            <td>구분</td>
+                            <td>상태</td>
+                            <td>제품</td>
+                            <td>접수일</td>
+                        </tr>
+                    </thead>
+                        <tr>
+                            <td>구분</td>
+                            <td>상태</td>
+                            <td>제품</td>
+                            <td>접수일</td>
+                        </tr>
+                        <tr>
+                            <td>구분</td>
+                            <td>상태</td>
+                            <td>제품</td>
+                            <td>접수일</td>
+                        </tr>
+                        <tr>
+                            <td>구분</td>
+                            <td>상태</td>
+                            <td>제품</td>
+                            <td>접수일</td>
+                        </tr>
+                        <tr>
+                            <td>구분</td>
+                            <td>상태</td>
+                            <td>제품</td>
+                            <td>접수일</td>
+                        </tr>
+                        <tr>
+                            <td>구분</td>
+                            <td>상태</td>
+                            <td>제품</td>
+                            <td>접수일</td>
+                        </tr>
+                </table>
+                </div>
+            </div>
+            <div class="col-6">
+                <h3 class="tit-update tit_01">온라인 상담 진행</h3>
+                <div class="my_cont_box">
+                <table class="table text-center">
+                    <thead>
+                        <td>구분</td>
+                        <td>상태</td>
+                        <td>제품</td>
+                        <td>접수일</td>
+                    </thead>
+                    <tr>
+                        <td>구분</td>
+                        <td>상태</td>
+                        <td>제품</td>
+                        <td>접수일</td>
+                    </tr>
+                    <tr>
+                        <td>구분</td>
+                        <td>상태</td>
+                        <td>제품</td>
+                        <td>접수일</td>
+                    </tr>
+                    <tr>
+                        <td>구분</td>
+                        <td>상태</td>
+                        <td>제품</td>
+                        <td>접수일</td>
+                    </tr>
+                    <tr>
+                        <td>구분</td>
+                        <td>상태</td>
+                        <td>제품</td>
+                        <td>접수일</td>
+                    </tr>
+                    <tr>
+                        <td>구분</td>
+                        <td>상태</td>
+                        <td>제품</td>
+                        <td>접수일</td>
+                    </tr>
+                </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-6">
+                <div class="row my_page-info-table">
+                <h3 class="tit-update tit_01">보유 제품 현황</h3>
+                </div>
+                <div class="my-page-info-table-box">
+                    <div class="title-box">
+                        <h1 class="icon-my-page-holding-products"></h1>
+                        <p><strong>보유제품 등록으로 편리하게 이용해 보세요.</strong></p>
+                    </div>
+                    <div class="text-box">
+                        <p>보유하고 계신 제품을 등록하시면 제품관리 및 문의에 대한 서비스를 편리하게 받으실 수 있습니다. </p>
+                        <div class="btn_box center_btn right_btn_box">
+                            <button class="btn-detail my"><a><span>보유제품 등록</span></a></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-6">
+                <div class="row my_page-info-table">
+                <h3 class="tit-update tit_01">제품 자가 진단</h3>
+                </div>
+                <div class="my-page-info-table-box">
+                    <div class="title-box">
+                        <h1 class="icon-my-page-iot"></h1>
+                        <p><strong>제품 자가진단으로 증상을 빠르게 확인해 보세요.</strong></p>
+                    </div>
+                    <div class="text-box">
+                        <p>스마트폰에서 실행한 제품 자가진단 결과를 편리하게 증상 확인과 관리를 할 수 있습니다. </p>
+                        <div class="btn_box center_btn left_btn_box">
+                            <button class="btn-detail my">
+                                <a><span>제품 자가진단 소개</span></a></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="row">
+            <div class="col-12">
+                <div class="row my_page-info-table">
+                    <h3 class="tit-update">소모품샵</h3>
+                </div>
+                <div class="myshop_check_info_list">
+                <ul>
+                    <li>
+                        <a>
+                            <dl class="myshop-dl">
+                                <dt>주문/배송</dt>
+                                <dd>
+                                    <span>2</span>
+                                    "건"
+                                </dd>
+                            </dl>
+                        </a>
+                    </li>
+                    <li>
+                        <a>
+                            <dl class="myshop-dl">
+                                <dt>1:1등록/답변</dt>
+                                <dd>
+                                    <span>5</span>
+                                    "건"
+                                </dd>
+                            </dl>
+                        </a>
+                    </li>
+                    <li>
+                        <a>
+                            <dl class="myshop-dl">
+                                <dt>관심상품</dt>
+                                <dd>
+                                    <span>8</span>
+                                    "개"
+                                </dd>
+                            </dl>
+                        </a>
+                    </li>
+                    <li>
+                        <a>
+                            <dl class="myshop-dl">
+                                <dt>적립금</dt>
+                                <dd>
+                                    <span>3,000</span>
+                                    "원"
+                                </dd>
+                            </dl>
+                        </a>
+                    </li>
+                    <li>
+                        <a>
+                            <dl>
+                                <dt>쿠폰</dt>
+                                <dd>
+                                    <span>3</span>
+                                    "개"
+                                </dd>
+                            </dl>
+                        </a>
+                    </li>
+                </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div><!-- content -->
+
+        <div class="container-fluid">
+        <div class="row"> <!-- 푸터 -->
+            <div class="col-md-12">
+            </div>
+        </div>
+        </div>
+
+        <!-- 플로팅 모달 -->
+    </div>
+</body>
+<script type="text/javascript" src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+<script src="https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.min.js"></script>
+<script src="index.js"></script>
+</html>

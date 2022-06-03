@@ -1,0 +1,21 @@
+@import './base/fonts';
+@import './base/normalize';
+@import './base/reset';
+
+@import './constants/colors';
+@import './constants/typography';
+
+@import './mixins/text-style';
+@import './constants/btn';
+@import './constants/form';
+
+@mixin hongsi($color) {
+  color: red;
+  .ic-close {
+    width: 40px;
+  }
+}
+
+p {
+  @include hongsi($black);
+}

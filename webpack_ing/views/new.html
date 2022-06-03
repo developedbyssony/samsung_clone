@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="http://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+    <script>
+        $(document).ready(function(){ 
+            $.ajax({
+            type:'GET',
+            url: 'http://localhost:8181/api',
+            dataType:'JSON'
+            }).done(function(data){
+                console.log(data);
+                $.each(data, function(i,item){
+                    let user_num = JSON.stringify(item[0].user_num);
+                    let email = JSON.stringify(item[0].email).replace(/"/g,'');
+                    let password = JSON.stringify(item[0].upassword).replace(/"/g,'');
+                    let name= JSON.stringify(item[0].uname).replace(/"/g,'');
+                    let address= JSON.stringify(item[0].address).replace(/"/g,'');
+                    let phoneNum = JSON.stringify(item[0].phoneNum).replace(/"/g,'');
+
+                    $('#result').append(`<h3>${user_num}</h3>`)
+                    $('#result').append(`<h3>${email}</h3>`)
+                    $('#result').append(`<h3>${password}</h3>`)
+                    $('#result').append(`<h3>${name}</h3>`)
+                    $('#result').append(`<h3>${address}</h3>`)
+                    $('#result').append(`<h3>${phoneNum}</h3>`)
+                });
+            });
+        });
+    </script>
+</head>
+<body>
+    <header>
+        <h1>Ajax로 JSON 데이터 받기</h1>
+    </header>
+    <div id="container">
+        <div id="result"></div>
+        <ul id="users"></ul>
+    </div>
+</body>
+</html>
