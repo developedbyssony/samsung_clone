@@ -1,0 +1,118 @@
+//컴포넌트 만들기
+
+// 버튼 / styles, sizes states의 기준으로 변주
+%btn-base {
+  padding: 13px 20px;
+  border-radius: 40px;
+}
+
+//a. styles는 3가지
+//a-1 filled버튼
+//a-2 outlined버튼
+//a-3 ghost버튼
+
+.btn-fill-primary {
+  // 까만색
+  @extend %btn-base;
+  color: $white;
+  background-color: $black;
+}
+
+.btn-fill-secondary {
+  // 회색, 회색 ghost 활성화 시
+  @extend %btn-base;
+  color: $black;
+  background-color: $secondary-btn-ghost;
+}
+
+.btn-fill-blue {
+  // 파란색, 블루 ghost 활성화 시
+  @extend %btn-base;
+  color: $white;
+  background-color: $blue;
+}
+
+.btn-outlined-primary {
+  // 까만색 아웃라인
+  @extend %btn-base;
+  color: $black;
+  background-color: $white;
+  border: 1px solid $black;
+}
+
+.btn-outlined-red {
+  // 빨간색 아웃라인
+  @extend %btn-base;
+  color: $red;
+  background-color: $white;
+  border: 1px solid $red;
+}
+
+.btn-ghost-secondary {
+  // 고스트 (회색)
+  @extend %btn-base;
+  color: $black-btn-txt;
+  background-color: $secondary-btn-ghost;
+}
+
+.btn-ghost-blue {
+  // 고스트 (블루)
+  @extend %btn-base;
+  color: $white;
+  background-color: $blue;
+}
+
+//b. button sizes
+// 높이를 기준으로 사이즈 구분
+
+.btn-50 {
+  //@include text-style(13);
+  height: 50px;
+  padding: 17px 30px 17px 30px;
+  font-size: 0;
+  text-align: center;
+} //회원가입
+
+.btn-42 {
+  //@include text-style(13);
+  height: 42px;
+  padding: 8px 20px 7px 20px;
+  font-size: 15px;
+} //로그인
+
+.btn-32 {
+  //@include text-style(13);
+  min-width: 80px;
+  height: 32px;
+  padding: 8px 15px 10px 15px;
+  border: 1px solid #000;
+  background-color: #fff;
+  font-size: 0;
+  text-align: center;
+}
+//메인 랜드마크 캐러셀, 마이페이지, 수정페이지
+//수정페이지 회원탈퇴
+
+.btn-40 {
+  //@include text-style(13);
+  height: 40px;
+  min-width: 96px;
+  font-size: 14px;
+  line-height: 1;
+  font-weight: 700;
+  text-align: center;
+} //수정페이지 기본
+
+.btn-24 {
+  //@include text-style(13);
+  vertical-align: middle;
+  margin-left: 20px;
+  margin-top: 1px;
+  border: 1px solid #dd463f;
+  height: 26px;
+  line-height: 26px;
+  padding: 0 10px;
+  color: #dd463f;
+  font-size: 14px;
+  font-weight: bold;
+} //수정 페이지 라벨

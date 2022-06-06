@@ -1,0 +1,526 @@
+@import url('./font/font.css');
+
+html, body {
+    font-family: 'SamsungOne400';
+    height: 100%;
+    width: 100%;
+    word-break:keep-all;
+    word-wrap:break-word;
+    letter-spacing: -0.025em;
+    line-height: 1.5;
+}
+
+* {
+    box-sizing: border-box;
+}
+/* reset */
+
+button,
+input,
+select,
+textarea {
+  font-family: 'SamsungOne400', sans-serif;
+  font-size: 16px;
+  background-color: transparent;
+  border: 0; }
+
+button:focus,
+input:focus,
+select:focus,
+textarea:focus {
+    outline: none;
+    box-shadow: none; }
+
+a,
+button {
+  color:inherit;
+  text-decoration: none;
+  cursor: pointer; }
+
+ul,
+oi,
+li {
+  display: inline-block;
+  padding-left: none;
+  list-style: none; }
+
+/* reset */
+
+/* 공통 요소 */
+
+.btn {
+  font-size:15px;
+  border-radius: 22px;
+  margin:2.5px;
+  width: 280px;
+  height: 44px;
+  padding: 8px 20px 7px 20px; 
+  background-color: #ededed;
+  border: none;
+  vertical-align: middle; 
+}
+
+/* 공통 요소 */
+
+.btn-detail {
+  display: inline-block;
+  min-width: 96px;
+  height: 40px;
+  background-color: #000000;
+  border-radius: 40px;
+  padding:  13px 20px;
+  font-size:0;
+  text-align: center;
+}
+
+.btn-detail span {
+  display: inline-block;
+  line-height: 1;
+  text-align: center;
+  color: #FFFFFF;
+  font-size: 14px;  
+  font-weight: 700; 
+}
+
+.btn-detail-reverse {
+  display: inline-block;
+  min-width: 96px;
+  height: 40px;
+  background-color: #FFFFFF;
+  border : 1px solid #000000;
+  border-radius: 40px;
+  padding:  13px 20px;
+  font-size:0;
+  text-align: center;
+}
+
+.btn-detail-reverse span {
+  display: inline-block;
+  line-height: 1;
+  text-align: center;
+  color: #000000;
+  font-size: 14px;  
+  font-weight: 700; 
+}
+
+/* header */
+
+header {
+    position: fixed;
+    z-index: 999;
+    top:0;
+    left: 0;
+    width: 100%;
+    height: 81px;
+    background-color: #FFFFFF;
+    border-bottom: 1px solid #e4e4e4;
+}
+
+
+.logo img {
+  line-height: 81px;
+  width: 218.203px;
+  height: 18px;
+  margin-bottom: 0;
+  /* 헤더 중간에 정렬 */
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  margin-left:24px;
+}
+
+ .my-sec-tit {
+  font-size: 34px;
+  line-height: 42px;
+  margin-top: 73px;
+  margin-bottom: 21px;
+  text-align: left; 
+  font-weight: bold;
+  }
+
+  .my-page-tit {
+    font-size: 28px;
+    line-height: 30px;
+    max-height: 62px;
+    margin-bottom: 10px;
+    font-weight: bold; }
+
+
+/* header */
+
+/* body */
+
+body {
+  min-height: 100%;
+  margin: 0;
+  font-family: sans-serif;
+}
+
+
+.bread-scrum {
+	position: relative;
+    height: 61px;
+	top: 81px;
+    padding: 20px 24px;
+    border: 1px solid #ddd;
+}
+
+.content {
+    position: relative;
+    top: 81px;
+    padding-top: 50px;
+}
+
+
+.sec-box .my-page-top-box {
+    position: relative;
+    min-width: 1440px;
+    width: 100%;
+    padding-left: 24px;
+    padding-right: 24px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.tit-page {
+    top:0;
+}
+
+.title {
+  margin-top: 120px;
+}
+
+.subDec {
+  margin-bottom: 30px;;
+}
+
+.sub-tit {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  text-align: left;
+  margin-left: 0;
+}
+
+.necessary-txt {
+  float: left;
+}
+
+.row .must-info {
+    padding-top: 60px;
+}
+
+.must-info-list-ul {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin-top: 18px;
+    border-top: 1px solid #000;
+    border-bottom: 1px solid #ddd;
+    padding: 26px 0;
+    padding-bottom: 50px;
+    margin-bottom: 60px;
+}
+
+.must-info-list-ul > li {
+    display: flex;
+    float: left;
+    height: 30px;
+}
+
+.must-info-list-ul > li + li {
+    margin-top: 20px;
+}
+
+.must-info-list-ul > li > label {
+    width: 235px;
+    padding-top: 9px;
+    position: absolute;
+    font-weight: bold;
+    float: left;
+    padding-left:30px;
+}
+
+#phoneNum, #phoneNum_re {
+    border-bottom: 1px solid #a9a9a9;
+}
+
+.private-afree-form {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.radio-txt {
+  position: relative;
+  left: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: stretch;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.form-wrap {
+    width: 450px;
+}
+
+.form-wrap .input {
+  position: relative;
+  left: 230px;
+  width: 100%;
+  padding: 3px 0 2px 0;
+  border-bottom: 1px solid #a9a9a9;
+}
+
+.form_radio {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+.form_radio > span {
+    margin-left: 20px;
+}
+
+.radio_box01 {
+    position: relative;
+    top:10px;
+    left: 50px;
+    width: calc(100% - 200px);
+}
+
+.radio_list_text {
+    margin-top: 10px;
+}
+.radio-list-btn-box {
+    width: 100px;
+}
+
+.must-info-list-ul .adress > li >label {
+    width: 235px;
+    padding-top: 39px;
+}
+
+.input-list-right-bt-box {
+    float: right;
+    margin-left: 25px;
+}
+
+.main-top h3 {
+    text-align: left;
+}
+
+.main-top p {
+    text-align: right;
+}
+
+.my_sec_cont_box ul {
+	display: flex;
+    flex-direction: row;
+    flex-basis: auto;
+	justify-self: space-between;
+	flex-wrap: nowrap;
+    align-items: stretch;
+    width: 100%;
+	border: 1px solid #ddd;
+}
+
+.my-page-info-table-box {
+    margin-top: 24px;    
+}
+
+/*
+.icon-my-page-holding-products {
+    /* 스프라이트 이미지 */
+ 
+/*
+.icon-my-page-iot {
+    /* 스프라이트 이미지 */
+
+/*
+.btn-detail my {
+    /* 오른쪽으로 */
+
+.div-inner .top-txt {
+  margin-top: 20px;
+  margin-bottom: 30px;
+
+}
+.div-inner dl {
+  width: 100%;
+  height: 100%;
+  background-color: #FFFFFF;
+  border: 1px solid #ddd;
+  border-radius: 20px;
+  padding: 32px 40px;
+  margin-bottom: 30px;
+}
+
+ul {
+  padding-left: 0;
+}
+
+.add {
+    position: relative;
+    top: 68px;
+}
+
+.div-inner-tit {
+  margin-bottom: 1rem;
+}
+
+.myshop_check_info_list ul {
+	display: flex;
+	justify-self: space-between;
+	flex-wrap: wrap;
+	border: 1px solid #ddd;
+	padding: 25px 0;
+	border-radius: 15px;
+}
+
+.tit_04 {
+	margin-bottom: 21px;
+}
+
+.tit_05 {
+	margin-bottom: 21px;
+}
+
+.col-12 .login {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /*
+  display: grid;
+  place-items: center;
+  margin-top: 200px;
+  */
+}
+
+.col-12 .button {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.div-outer {
+  position: relative;
+  top:5px;
+  background-color: #fcfcfc;
+  border-radius: 26px;
+  padding: 60px 72px 48px 72px;
+  margin-bottom: 118.34px;
+}
+
+/*
+.underline_text_section {
+}*/
+
+.underline_text {
+  margin-bottom: 36px;
+  width: 330px;
+  text-align: left;
+}
+
+.underline_text li {
+  margin-bottom: 8px;
+  font-size: 15px;
+  line-height: 1.6;
+  font-weight: bold;
+}
+
+.underline_text li a {
+  text-decoration: unset;
+}
+
+.button_bottom {
+  margin-bottom: 30px;
+}
+
+.join-btn-sec {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.join-btn-sec .btn-detail, .join-btn-sec .btn-detail-reverse{
+  margin-right: 20px;
+}
+
+#textbox_top label {
+  display: none;
+}
+
+#input_form {
+  margin-bottom: 10px;
+}
+
+.one-footer {
+  position: fixed;
+  bottom: 0;
+  padding: 16px 16px 30px 16px;
+  height: 118.34px;
+}
+
+.footer-inner {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin: 0 auto;
+  height: 72.344px;
+  font-size: 12px;
+}
+
+.footer-inner div:first-of-type {
+  flex-grow: 0;
+  flex-shrink: 0;
+  flex-basis: auto;
+  margin-top: 23px;
+}
+
+.footer-inner .footer-logo {
+  text-align: right;
+}
+
+.footer-inner .footer-logo img{
+  width: 201px;
+  height: auto;
+  opacity: 1;
+}
+
+.footer-address {
+  order: 3;
+  font-style: normal;
+  font-stretch: normal;
+  width: auto;
+  font-weight: 500;
+  font-size: 12px;
+  color: #888;
+}
+
+.btn:hover {
+  color:grey;
+  box-shadow: 2px 2px 2px orange;
+}
+
+h1 {
+  color: black;
+}
+/*
+.div-inner .bottom > dl > dd > ul > li:before {
+  content: '';
+  position: absolute;
+  top: 9px;
+  left: 0;
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background-color: #000;
+}
+/* body *
