@@ -409,7 +409,9 @@
                 <div class="search_form_wrap">
                     <div class="search_form">
                         <span class="form_text">
-                        <input type="type" placeholder="예) 비밀번호 해제, 침수, 파손, SL-C46xFW"> <br />
+                        <input type="type" placeholder="예) 비밀번호 해제, 침수, 파손, SL-C46xFW"> 
+                        <h1 class="icon-input-search-modal_2"></h1>                               
+                        <br />
                         </span>
                     </div>
                 </div>
@@ -520,7 +522,7 @@
                         </ul>
                         <button class="btn-more">
                             <h1 class="ic-btn-more"></h1>
-                            <span><strong>더보기</strong></span>
+                            <span style="display:none;"><strong>더보기</strong></span>
                         </button>
                         </div>
                     </div>
@@ -645,13 +647,13 @@
                     <p class="service-sub-title text-center">간단한 팁과 해결 방법을 찾아보세요!</p>
                     <div class="txt-slides swiper2">
                             <div class="c2_s1">
-                                <strong>Galaxy S22/S22+/S22 Ultra</strong>
+                                <strong style="height: 36px;">Galaxy S22/S22+/S22 Ultra</strong> <br />
                                 <p>
                                     성능도 크기도 다양한 GalaxyS 
                                     <br />
                                     한눈에 쉽게 알아보세요.
                                 </p>
-                                <img src="http://localhost:8181/css/assets/main/carousel_2/item1.png" id="c2_img1" onmouseover="overflowVisible1()">
+                                <img src="http://localhost:8181/css/assets/main/carousel_2/item1.png" id="c2_img1" class="c2_img1" onmouseover="overflowVisible1()">
                             </div>
                             <div class="c2_s2">
                                 <strong>알고보면 쉬운 프린터 진단 가이드</strong>
@@ -660,20 +662,19 @@
                                     <br />    
                                     알아보세요.
                                 </p>
-                                <img src="http://localhost:8181/css/assets/main/carousel_2/item2.png" id="c2_img2" onmouseover="overflowVisible2()">
+                                <img src="http://localhost:8181/css/assets/main/carousel_2/item2.png" id="c2_img2" class="c2_img2" onmouseover="overflowVisible2()">
                             </div>
                             <div class="c2_s3">
-                                <strong>GalaxyWatch4/ Watch4 Classic</strong>
-                                <img src="http://localhost:8181/css/assets/main/carousel_2/item3.png" id="c2_img3" onmouseover="overflowVisible3()">
+                                <strong style="height: 36px;">GalaxyWatch4/ Watch4 Classic</strong>
+                                <img src="http://localhost:8181/css/assets/main/carousel_2/item3.png" id="c2_img3" class="c2_img3" onmouseover="overflowVisible3()">
                             </div>
                             <div id="carousel2_mob_none" class="c2_s4">
-                                <strong>새롭고 강력해진! 갤럭시 북2 Pro360</strong>
-                                <p>
-                                    삼성 갤럭시 북2 Pro 360
-                                    제품 특장점 및 신규 소프트웨어 등을
-                                    확인해 보세요.
+                                <strong id="galaxybook-tit">새롭고 강력해진! 갤럭시 북2 Pro360</strong>
+                                <p style="position: absolute; top:55px;">
+                                    삼성 갤럭시 북2 Pro 360 제품 특장점 및 <br />
+                                    신규 소프트웨어 등을 확인해 보세요.
                                 </p>
-                                <img src="http://localhost:8181/css/assets/main/carousel_2/item4.png" id="c2_img4" onmouseover="overflowVisible4()">
+                                <img src="http://localhost:8181/css/assets/main/carousel_2/item4.png" id="c2_img4" class="c2_img4" onmouseover="overflowVisible4()">
                             </div>
                             <div class="c2_s5">
                                 <strong>휴대폰 액정 화면 단품 수리 안내</strong>
@@ -682,7 +683,19 @@
                                     <br />
                                     알려드려요!
                                 </p>
-                                <img src="http://localhost:8181/css/assets/main/carousel_2/item5.png"  id="c2_img5" onmouseover="overflowVisible5()">
+                                <img src="http://localhost:8181/css/assets/main/carousel_2/item5.png"  id="c2_img5" class="c2_img5" onmouseover="overflowVisible5()">
+                            </div>
+                            <div class="c2_s6">
+                                <strong style="font-size: 20px; position:relative; top: 40px; height:60px;">
+                                    Galaxy Z Fold3 / Flip3<br/>
+                                    보호 필름 부착 서비스 혜택
+                                </strong>
+                                <p style="position: absolute; top:85px;">
+                                   정품 보호 필름 무료 1회
+                                    <br />
+                                   부착 서비스 혜택을 놓치지 마세요.
+                                </p>
+                                <img src="http://localhost:8181/css/assets/main/carousel_2/item6.png"  id="c2_img6" onmouseover="overflowVisible6()">
                             </div>
                     </div>
                 </div>
@@ -924,10 +937,16 @@
                     <div class="inner">
                         <ul class="is-active">
                             <div id="floating">
+                                <li class="list"><div class="quick-chatbot"><div class="ic-quick-chatbot"></div><div id="txt-chatbot"></div></div></li> <br />
+                                <li class="list" id="list2"><div class="quick-shop"><div class="ic-quick-shop"></div><div id="txt-shop"></div></div></li> <br />
+                                <li class="list" id="list3"><div class="quick-video"><div class="ic-quick-video"></div><div id="txt-video"></div></div></li> <br />
+                                <li class="list" id="list4"><div class="quick-center"><div class="ic-quick-center"></div><div id="txt-center"></div></div></li> <br />
+                            <!-- js 들어간 코드 (아래)
                             <li class="list" onmouseover="text1()" onmouseleave="text1_1()"><div class="quick-chatbot"><div class="ic-quick-chatbot"></div><div id="txt-chatbot"></div></div></li> <br />
                             <li class="list" id="list2" onmouseover="text2()" onmouseleave="text2_1()"><div class="quick-shop"><div class="ic-quick-shop"></div><div id="txt-shop"></div></div></li> <br />
                             <li class="list" id="list3" onmouseover="text3()" onmouseleave="text3_1()"><div class="quick-video"><div class="ic-quick-video"></div><div id="txt-video"></div></div></li> <br />
                             <li class="list" id="list4" onmouseover="text4()" onmouseleave="text4_1()"><div class="quick-center"><div class="ic-quick-center"></div><div id="txt-center"></div></div></li> <br />
+                            -->
                             </div>
                             <li class="list_click" onClick="btnClick()"></li> 
                         </ul>
