@@ -8,13 +8,12 @@ const server = express();
 
 
 exports.LoginCheck = async function(request,response) {
-    var json = {};
 
     console.log('<<<<<<login-service 진입>>>>>>');
 
     const id = request.body.id;
     const password = request.body.password;
-    
+
     var query = "SELECT * FROM userTable2 WHERE email = '" + id + "';";
     console.log("쿼리문 확인 :" + query);
 
@@ -22,30 +21,29 @@ exports.LoginCheck = async function(request,response) {
         if (!err) {
             console.log('쿼리 실행 완료');
             
-            if(rows[0])
-            {
+            if(rows[0]) {
+                const msg = document.getElementById('msg');
                 var userIdCheck = rows[0].email;
                 var userPasswordCheck = rows[0].upassword;
         
                 if(userPasswordCheck != password) {
-                    console.log("패스워드가 일치하지 않습니다.");
-                    alert("패스워드가 일치하지 않습니다.");
-                } else {
-                    console.log("로그인 성공");
-                    /*
+                      msg.innerText = PW_ERROR_MSG[isValidPw]
+                    } else {
                     response.cookie('uid',id, { 
                         httpOnly:true,
                         maxAge: 1000 * 60 * 60 * 24 * 7});
                     console.log("쿠키 발급 완료");         
-                    */       
+    
                     request.session.uid = id;
                     request.session.save(() => {
                     console.log("세션 발급 완료");});
-                    // response.render(__dirname + '/views/main.html');
+
+                    console.log("로그인 성공");
+
+                    response.render(__dirname + '/views/main/index_로그인.html');
                 }
             } else {
-            console.log("아이디가 일치하지 않습니다.");
-            alert("아이디가 일치하지 않습니다.");
+                    msg.innerText = ID_ERROR_MSG[isValidId]
             } 
         }
     });

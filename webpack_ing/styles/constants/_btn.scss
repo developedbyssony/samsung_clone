@@ -2,7 +2,6 @@
 
 // 버튼 / styles, sizes states의 기준으로 변주
 %btn-base {
-  // @include inline-flexbox;
   padding: 13px 20px;
   border-radius: 40px;
 }
@@ -97,7 +96,10 @@
 .btn-40 {
   //@include text-style(13);
   height: 40px;
-  font-size: 0;
+  min-width: 96px;
+  font-size: 14px;
+  line-height: 1;
+  font-weight: 700;
   text-align: center;
 } //수정페이지 기본
 

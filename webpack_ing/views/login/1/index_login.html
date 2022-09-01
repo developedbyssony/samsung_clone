@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- 부트스트랩 라이브러리  -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <!-- css  -->
+    <link rel="stylesheet" href="style.css">
+    <!-- favicon  -->
+    <link rel="icon" type="image/x-icon" href="http://localhost:8181/favicon.ico" /> 
+    <link rel="shortcut icon" type="image/x-icon" href="http://localhost:8181/favicon.ico" />  
+    <title>로그인 | 삼성전자서비스</title>
+</head>
+<body>
+    <div id="wrapper"> <!-- 컨텐츠 + footer -->
+        <div class="container-fluid" id="content"> <!-- 컨텐츠 시작 (footer 전까지)-->
+           <!-- 1) GNB 마크업 -->
+           <div class="container-fluid">
+            <div class="row">
+                <div class="app-header">
+                    <header class="header">
+                        <div class="ci">
+                            <h1 class="logo"></h1>
+                            <a href="#"></a>
+                        </div>
+        
+                    <ul class="nav-menu">
+                        <li class="nav-menu-item">
+                            <a href="/" class="menu1">스스로해결</a>
+                        </li>
+                        <li class="nav-menu-item">
+                            <a href="/" class="menu2">전문상담</a>
+                        </li>
+                        <li class="nav-menu-item">
+                            <a href="/" class="menu3">서비스 안내</a>
+                        </li>
+                        <li class="nav-menu-item">
+                            <a href="/" class="menu4">서비스 예약</a>
+                        </li>
+                        <li class="nav-menu-item">
+                            <a href="/" class="menu5">소모품샵</a>
+                        </li>
+                        <li class="nav-menu-item">
+                            <a href="/" class="menu6">고객의 소리</a> 
+                        </li>
+                    </ul>
+                        <div class="util">
+                            <h1 class="icon-member-session" onclick="LoginToggle()"></h1>
+                            <div class="gnb-session sm-hidden" style="display:none;" id="login">
+                                <a href="http://localhost:8181/main/my">
+                                    <span class="tooltip-txt">
+                                    마이페이지
+                                    </span>
+                                </a>
+                                <a href="http://localhost:8181/logout">
+                                    <span class="tooltip-txt"> 
+                                    로그아웃
+                                    </span>
+                                </a>
+                            </div>
+                            <h1 class="icon-cart"></h1>
+                            <h1 class="icon-search" id="mob-ic" onclick="searchMenuToggle()"></h1>
+                        </div>
+                     <!-- GNB 슬라이드 메뉴 -->
+                    <div class="sub-gnb-detail-bundle open" style="display:none;"> 
+                        <div class="sub-gnb menu1">
+                            <strong class="tit">스스로 해결</strong> <br /> 
+                            <ul class="sub-gnb-detail">
+                                <li><a href="#">모바일</a></li>
+                                <li><a href="#">PC/모니터</a></li>
+                                <li><a href="#">냉장고/김치냉장고</a></li>
+                                <li><a href="#">TV</a></li>
+                                <li><a href="#">세탁기/건조기/에어드레서</a></li>
+                                <li><a href="#">에어컨</a></li>
+                                <li><a href="#">프린터/복합기</a></li>
+                                <li><a href="#">청소기</a></li>
+                                <li><a href="#">공기청정기/제습기</a></li>
+                                <li><a href="#">주방가전</a></li>
+                                <li><a href="#">오디오</a></li>
+                                <li><a href="#">스마트싱스</a></li>
+                                <li><a href="#">기타 제품</a></li>
+                            </ul>
+                        </div>
+                        <div class="sub-gnb menu2">
+                            <strong class="tit">전문상담</strong> <br />
+                            <ul class="sub-gnb-detail">
+                                <li><a href="#">챗봇상담</a></li>
+                                <li><a href="#">이메일 상담</a></li>
+                                <li><a href="#">원격상담</a></li>
+                                <li><a href="#">전화상담 예약</a></li>
+                                <li><a href="#">수어상담</a></li>
+                            </ul>
+                        </div>
+                        <div class="sub-gnb menu3">
+                            <strong class="tit">서비스 안내</strong> <br />
+                            <ul class="sub-gnb-detail">
+                                <li><a href="#">요금안내</a></li>
+                                <li><a href="#">유지보수/세척</a></li>
+                                <li><a href="#">Samsung Care+</a></li>
+                                <li><a href="#">영수증/명세서 발급</a></li>
+                                <li><a href="#">다운로드 자료실</a></li>
+                            </ul>
+                        </div>
+                        <div class="sub-gnb menu4">
+                            <strong class="tit">서비스 예약</strong> <br />
+                            <ul class="sub-gnb-detail">
+                                <li><a href="#">출장서비스 예약</a></li>
+                                <li><a href="#">예약 조회/변경/취소</a></li>
+                                <li><a href="#">센터찾기</a></li>
+                            </ul>
+                        </div>
+                        <div class="sub-gnb menu5">
+                            <strong class="tit">소모품샵</strong> <br />
+                            <ul class="sub-gnb-detail">
+                                <li><a href="#">모바일</a></li>
+                                <li><a href="#">PC</a></li>
+                                <li><a href="#">프린터/복합기</a></li>
+                                <li><a href="#">TV/모니터</a></li>
+                                <li><a href="#">에어컨/공기청정기</a></li>
+                                <li><a href="#">세탁기/건조기</a></li>
+                                <li><a href="#">청소기</a></li>
+                                <li><a href="#">냉장고/김치냉장고</a></li>
+                                <li><a href="#">주방가전</a></li>
+                                <li><a href="#">기타 제품</a></li>
+                                <li><a href="#">할인판매</a></li>
+                            </ul>
+                        </div>
+                        <div class="sub-gnb menu6">
+                            <strong class="tit">고객의 소리</strong> <br />
+                            <ul class="sub-gnb-detail">
+                                <li><a href="#">칭찬합니다</a></li>
+                                <li><a href="#">불편합니다</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <!-- -->
+                    </header>
+                </div>
+            </div>
+            </div>
+            </div>
+                <div class="container-fluid"> <!-- 2) icon-search 클릭 시 열리는 토글 메뉴 -->
+                <div class="row">
+                <div id="appSearch">
+                    <div>
+                        <div class="app-search-inner">
+                            <div class="sec-box">
+                                <p class="app-search-tit">
+                                    <strong>무엇을 도와드릴까요?</strong> <br />
+                                    궁금하신 내용을 검색해주세요.
+                                </p>
+                            </div>
+                            <div class="sec-box app-search-form-wrap">
+                                <div class="app-search-form-area">
+                                    <div class="app-search-form"> <!-- 검색 창 -->
+                                        <div class="form_text">
+                                            <div class="input">
+                                                <input type="textbox" placeholder="검색어를 입력해주세요">     
+                                                <h1 class="icon-input-search-modal"></h1>                               
+                                            </div>
+                                                <!-- <button class="search_btn_img"> -->
+                                                <!-- </button> -->
+                                        </div> 
+                                    </div> <!-- 검색 창 끝 -->
+                                </div>
+                            </div>
+                            <div class="sec-box app-search-form-favo">
+                            <div class="app-search-form-favorite tit">
+                                <strong class="key-tit1">인기 검색어</strong>
+                            </div>
+                                <div class="sec-box app-search-keyword">
+                                    <p class="keyword">#갤럭시 S22</p>
+                                    <p class="keyword">#윈도우10 업그레이드</p>
+                                    <p class="keyword">#온도 조절 방법</p>
+                                    <p class="keyword">#통세척</p>
+                                    <p class="keyword">#프린트 공유</p>
+                                    <p class="keyword">#BESPOKE제트</p>
+                                </div>
+                            </div>
+                            <br />
+                            <hr style="width:872px; margin:0 auto;">
+                            <br />
+                            <div class="sec-boc">
+                                <div class="recent-search-keywords">
+                                    <strong class="key-tit2">최근 검색어</strong>
+                                    <button class="btn-recent-delete-all">
+                                        <span class="delete">전체삭제</span>
+                                    </button>
+                                </div>
+                            </div>
+                            <img src="assets/main/close.png" class="btn-close" onclick="searchMenuClose()">
+                        </div>
+                    </div>
+                </div>
+                </div>
+                </div>
+            <!-- GNB 마크업 끝 -->
+
+        <!-- 개별 영역 : 로그인 페이지 시작 -->
+        <div class="content"> <!-- 헤더와 푸터를 제외한 컨텐츠 시작 -->
+
+        <div class="container-fluid"> <!-- 상단 영역 -->
+        <div class="container"> 
+        <div class="row">
+            <h3 class="login-top-title">로그인</h3>
+            <div class="col-12 main-top">
+                <div class="col-12 sec-box">
+                    <div class="sec-cont login-top-box">
+                            <div class="row">
+                            <div class="box-text-area">
+                                <div class="login-top-icon">
+                                    <h1 class="icon-login-main">
+                                    </h1>
+                                </div>
+                                <p class="top-txt text-center">
+                                    통합 계정 서비스인 삼성 계정(Samsung Account)과 로그인을 통해
+                                    <br />
+                                    상담, 예약, 소모품 구매 등 다양한 서비스를 간편하게 이용할 수 있습니다!
+                                </p>
+                            </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </div>
+        </div>
+ 
+        <div class="container-fluid bottom"> <!-- 하단 영역 -->
+        <div class="container"> 
+        <div class="row">
+            <h3 class="login-bottom-title">회원 로그인</h3>
+            <div class="col-12 main-bottom">
+                <div class="sec-box">
+                    <div class="sec-cont box-radius member-login"> <!-- 회원 로그인 (하단 박스 아우터) 시작 -->
+                        <div class="box-inner member-login-list"> <!-- 회원 로그인 (하단 박스 이너) 시작 -->
+                            <div>
+                                <div class="btn-box btnFull">
+                                    <a href="http://localhost:8181/main/login/login">
+                                    <button type="button" class="btn-detail" id="samsungAccount"><span>삼성 계정(Samsung Account)으로 로그인</span></button>
+                                    </a>
+                                </div>
+                                <div class="btn-wrap">
+                                    <button type="button" class="btn-detail-reverse" id="join-btn">
+                                        <span>                                    
+                                            <a href="http://localhost:8181/main/login/join">
+                                                회원 가입
+                                            </a>
+                                        </span>
+                                    </button>
+                                    <button type="button" class="btn-detail-reverse" id="email-btn"><span>이메일 찾기</span></button>
+                                    <button type="button" class="btn-detail-reverse" id="pw-btn"><span>비밀번호 찾기</span></button>
+                                </div>
+                                <hr />
+                            </div>
+                            <div> <!-- 소셜 로그인 -->
+                                <div class="btn-wrap icon-btn-box">
+                                    <button type="button" class="btn-detail-reverse" id="kakao"><span>카카오계정 로그인</span></button>
+                                    <button type="button" class="btn-detail-reverse" id="naver"><span>네이버계정 로그인</span></button>
+                                </div>
+                                <div class="text-center btn-line-box">
+                                    <button type="button" class="btn-line">
+                                        <span><strong>소모품샵 비회원 로그인</strong></span>
+                                    </button>
+                                </div>
+                            </div>
+                            <div>
+                            </div>
+                        </div> <!-- 회원 로그인 (하단 박스 이너) 끝 -->
+                    </div> <!-- 회원 로그인 (하단 박스 아우터) 끝 -->
+                </div>
+            </div>
+        </div>
+        </div>
+        </div>
+        </div>
+        </div> <!-- 헤더와 푸터를 제외한 컨텐츠 끝 -->
+
+        <footer class="footer-txt footer"> 
+    <div class="footer-pages">
+        <a>이용약관</a>
+        <a><strong>개인정보처리방침</strong></a>
+        <a>영상정보처리기기운영관리방침</a>
+        <a>홈페이지의견</a>
+        <a>아이디어정책</a>
+        <a>사이트맵</a>
+        <a>공지사항</a>
+        <a>이벤트</a>
+        <a>이용가이드</a>
+        <a>회사소개</a>
+    </div>
+    <div class="footer-company-info">
+    <p>
+        <sapn>주소 : 경기도 수원시 영통구 삼성로 290 삼성전자서비스주식회사</sapn>
+        <sapn>대표이사 : 송봉섭</sapn>
+        <sapn>사업자등록번호 : 124-81-58485</sapn>
+        <sapn>통신판매업신고번호 : 제2005-406호</sapn>
+        <sapn>사업자번호확인 : 124-81-58485</sapn>
+        <sapn>호스팅서비스제공자 : 삼성에스디에스㈜</sapn>
+        <sapn>대표전화 : 1588-3366(통화요금 : 발신자 부담)</sapn>
+        <sapn>회원문의 : 080-719-4031</sapn>
+    </p>
+    </div>
+    <div class="copyright">
+        <p>본 사이트의 컨텐츠는 저작권법의 보호를 받는 바 무단 전재, 복사, 배포 등을 금합니다. <br />
+        Copyright ©SAMSUNG ELECTRONICS SERVICE CO., Ltd. All rights reserved.</p>
+    </div>
+    <div class="footer-bottom">
+        <div class="footer-logo">
+        <div class="sns_drop-menu-bundle">
+            <strong class="sns">SNS</strong>
+            <h1 class="youtube"></h1>
+            <h1 class="blog"></h1>
+            <h1 class="instagram"></h1>
+            <h1 class="facebook"></h1>
+        <div class="drop-menu">
+            <div class="dropdown">
+                <button type="button" data-bs-toggle="dropdown" class="btn dropdown-toggle btn-footer" aria-expanded="false">
+                <span>삼성제품 관련 사이트</span>
+                </button>    
+                <ul class="dropdown-menu" role="menu">
+                    <li><a class="dropdown-item" href="#">유튜브</a></li> <br />
+                    <li><a class="dropdown-item" href="#">블로그</a></li> <br />
+                    <li><a class="dropdown-item" href="#">인스타그램</a></li> <br />
+                    <li><a class="dropdown-item" href="#">삼성전자</a></li> <br />
+                    <li><a class="dropdown-item" href="#">삼성전자 판매</a></li> <br />
+                    <li><a class="dropdown-item" href="#">삼성전자 로지텍</a></li>
+                </ul>
+                </div>
+            </div>
+        </div>
+        </div>
+        </div>
+            <div class="footer-certifications">
+               <div class="logoNtxt1"> 
+               <div class="logo1">
+                <a href="#">
+                    <h1 class="icon-ksgi1"></h1>
+                </a>
+               </div> 
+               <div class="logo1_txt">
+                <span>
+                    서비스 품질지수
+                    <br />
+                    13년 연속 우수 콜센터
+                </span>
+               </div>
+               </div> 
+               <div class="logoNtxt2"> 
+               <div class="logo2">
+                <a href="#">
+                    <h1 class="icon-ksgi2"></h1>
+                </a>
+                </div>
+                <div class="logo2_txt">
+                    <span>
+                        서비스 품질지수
+                        <br />
+                        가전, 휴대전화 A/S 품질 1위
+                    </span>
+                </div>
+               </div>
+               <div class="logoNtxt3"> 
+                <div class="logo3">
+                    <a href="#">
+                        <h1 class="icon-emblem"></h1>
+                    </a>
+                </div>
+                <div class="logo3_txt">
+                    <span>
+                        한국에서 가장 존경받는 기업
+                        <br />
+                        서비스센터 부문 11년 연속 1위
+                    </span>
+                </div>
+               </div>
+               <div class="logoNtxt4"> 
+                <div class="logo4">
+                <a href="#">
+                    <h1 class="icon-ks-sqi"></h1>
+                </a>
+                </div>
+                <div class="logo4_txt">
+                    한국서비스 품질지수
+                    <br />
+                    전자제품 A/S 전부문 1위
+                </div>
+               </div>
+               <div class="logoNtxt5"> 
+                <div class="logo5">
+                <a href="#">
+                    <h1 class="icon-ks-cqi"></h1>
+                </a>
+                </div>
+                <div class="logo5_txt">
+                    콜센터품질지수(KS-CQI)
+                    <br />
+                    가전/휴대폰 제품 부문 최고 등급
+                </div>
+               </div>
+               <div class="logoNtxt6"> 
+                <div class="logo6">
+                    <a href="#">
+                        <h1 class="icon-isms"></h1>
+                    </a>
+                </div>
+                <div class="logo6_txt">
+                    <span>
+                        정보보호관리체계
+                        <br />
+                        인증
+                    </span>
+                </div>
+               </div>
+               <div class="logoNtxt7"> 
+                <div class="logo7">
+                    <a href="#">
+                        <h1 class="icon-wa"></h1>
+                    </a>
+                </div>
+                <div class="logo7_txt">
+                    <span>
+                        정보접근성 품질인증
+                    </span>
+                </div>
+               </div>
+               <div class="logoNtxt8"> 
+                <div class="logo8">
+                    <a href="#">
+                        <h1 class="icon-kicc-easyescrow"></h1>
+                    </a>
+                </div>
+                <div class="logo8_txt">
+                    <span>
+                        KICC 매매안심거래
+                        <br />
+                        서비스가맹점 <a href="#" style="text-decoration: underline;">서비스가입확인</a>
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+        </footer>
+
+        <!-- 플로팅 모달 -->
+        <div>
+
+        </div>
+    </div><!-- wrapper-->
+</body>
+</html>

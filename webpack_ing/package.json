@@ -251,7 +251,9 @@
     "finalhandler": "^1.2.0",
     "find-cache-dir": "^3.3.2",
     "find-up": "^4.1.0",
-    "firebase": "^9.8.2",
+    "firebase": "^9.9.1",
+    "firebase-cli": "^1.2.0",
+    "firebase-tools": "^11.0.1",
     "flat-cache": "^3.0.4",
     "flatted": "^3.2.5",
     "follow-redirects": "^1.15.1",
@@ -814,7 +816,9 @@
     "deploy": "gh-pages -d build",
     "test": "echo \"Error: no test specified\" && exit 1",
     "jest": "jest",
-    "start": "node ./index.js"
+    "start": "node ./index.js",
+    "node-sass": "node-sass",
+    "sass": "node-sass styles/main.scss ./style.css"
   },
   "keywords": [],
   "author": "",

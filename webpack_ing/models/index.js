@@ -9,7 +9,7 @@ const db = {};
 const sequelize = new Sequelize({
   host:'localhost',
   username:'root',
-  password:'1234',
+  password:'mysql@!####',
   port:'3306',
   database: 'new_schema',
   dialect:'mysql'

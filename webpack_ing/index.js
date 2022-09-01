@@ -29,7 +29,7 @@ sequelize.sync();
 const pool = mysql.createPool({
     host:'localhost',
     user:'root',
-    password:'1234',
+    password:'mysql@!####',
     port:'3306',
     database: 'new_schema'
     });
@@ -39,18 +39,16 @@ const Connection = mysql.createConnection({
     host:'localhost',
     user:'root',
     port:'3306',
-    password:'1234',
+    password:'mysql@!####',
     database: 'new_schema'
 });
             
-mybatisMapper.createMapper(['./testMapper.xml']); 
+mybatisMapper.createMapper(['./xml/testMapper.xml']); 
             
 
 server.listen(PORT, function() {
     console.log("Listening on port" + `${PORT}`);
     });
-
-//server.use(express.static('server'));
 
 server.use(express.static('views'));
 server.use(express.json()); 
@@ -58,14 +56,17 @@ server.use(bodyParser.json());
 
 server.use(cookieParser()); 
 server.use(session({
-    secret: '12345',
+    secret: 'mysql@!####',
     resave: false,
     saveUninitialized: true,
     cookie: { secure: false }
 }));
 
+server.use('/', express.static(__dirname + '/static')); //-> css, javascript 파일 사용을 위해 기본 path를 /static으로 설정
+
 server.set('views', path.join(__dirname, '/views'));
 server.set('view engine', 'html');
+
 nunjucks.configure('views', {
    express:server,
    watch:true, 
@@ -81,9 +82,9 @@ const LoginController = require('./login-controller.js');
 const SignUpController = require('./join-controller.js');
 const UserInfoController = require('./user-info-controller.js');
 const { ThemeConsumer } = require('react-bootstrap/esm/ThemeProvider');
+const { pwd } = require('shelljs');
     
-server.get("/api", function (request, response) { 
-        const result = {};
+server.get("/user-info-api", function (request, response) { 
         var title = null;
         async.waterfall([
         function(callback) {
@@ -98,7 +99,7 @@ server.get("/api", function (request, response) {
                     'param' : uid
                 }
                 var format = {language:'sql', indent:' '};
-                var query = mybatisMapper.getStatement('testMapper', 'testBasic', param, format); // name, id, parameter, format
+                var query = mybatisMapper.getStatement('testMapper','testBasic1', param, format); // name, id, parameter, format
                 console.log(query);
                 Connection.connect();
                 Connection.query(query,function(error,result, fields) {
@@ -110,15 +111,47 @@ server.get("/api", function (request, response) {
                     const json = JSON.parse(data);
                     console.log('회원 정보 조회 완료');
                     return response.json({json});
-                    //var string = JSON.stringify(result);
-                    //var json = JSON.parse(string);
                     });
-                    /*Connection.end(); */
                 } else {
                     console.log('err');
                 }
 }])
 })
+
+server.get("/user-buy-api", function (request, response) { 
+    var title = null;
+    async.waterfall([
+    function(callback) {
+            title = mysql.escape(request.body.title);
+            callback();
+    },
+    function(callback) {
+    if(title !== undefined) {
+        const uid = request.session.uid;
+        console.log(uid);
+        var param = {
+            'param' : uid
+        }
+        var format = {language:'sql', indent:' '};
+        var query = mybatisMapper.getStatement('testMapper','testBasic4', param, format); 
+
+        Connection.connect();
+        Connection.query(query,function(error,result, fields) {
+                if(!error) {
+                const data = JSON.stringify(result);
+                console.log(JSON.stringify(result));
+                const json = JSON.parse(data);
+                console.log('구매 정보 조회 완료');
+                return response.json({json});
+            } else {
+                console.log('잘못된 접근입니다.');
+            }
+        })
+    }
+}
+])
+});
+
 
 server.get("/", function (request, response) { 
     response.send('<h1>localhost:8181 접속시</h1>');
@@ -129,19 +162,20 @@ server.get("/main", function (request, response) {
     const id = request.session.uid;
     console.log(id);
     if (id == undefined) {
-        response.render(__dirname + '/views/index_비로그인.html');
+        response.render(__dirname + '/views/main/index_비로그인.html');
     } else {
-        response.render(__dirname + '/views/index_로그인.html');
+        console.log(id);
+        response.render(__dirname + '/views/main/index_로그인.html');
     }
 });
 
 // 2)로그인 통합 페이지 -> 로그인, 회원가입로 UX 분기 나뉨
 server.get("/main/login", function (request, response) { 
-    response.render(__dirname + '/views/login/1/index.html');
+    response.sendFile(__dirname + '/views/login/1/index_login.html');
 });
 
 server.get("/main/login/login", function (request, response) { 
-    response.render(__dirname + '/views/login/2/index.html');
+    response.render(__dirname + '/views/login/2/index_login_login.html');
 });
 
 server.get("/main/login/join", function (request, response) { 
@@ -201,10 +235,62 @@ const returnResult = function(err, res) {
 }
 
 server.post('/main/login/login',async function(request, response){
-    var result = await LoginController.LoginCheck(request,response);
-    console.log(request.body.id);
-    console.log(request.body.password);
-    response.sendFile(__dirname + '/views/main/index_로그인.html');
+    var title = null;
+    async.waterfall([
+    function(callback) {
+            title = mysql.escape(request.body.title);
+            callback();
+    },
+    function(callback) {
+    if(title !== undefined) {
+            const id = request.body.id;
+            const pw = request.body.password;
+
+            console.log(id);
+            console.log(pw);
+
+            var param = {
+                'param' : id
+            }
+            var format = {language:'sql', indent:' '};
+            var query = mybatisMapper.getStatement('testMapper', 'testBasic1', param, format); 
+
+            Connection.connect();
+            Connection.query(query,function(error,result, fields) {
+                if(result[0]) {
+
+                    const data = JSON.stringify(result);
+                    console.log(JSON.stringify(result));
+                    const json = JSON.parse(data);
+                    const upw = json[0].upassword;
+                    if(pw == upw) {
+                        console.log('로그인 성공');
+
+                        response.cookie('uid',id, { 
+                        httpOnly:true,
+                        maxAge: 1000 * 60 * 60 * 24 * 7});
+                        console.log("쿠키 발급 완료");         
+        
+                        request.session.uid = id;
+                        request.session.save(() => {
+                        console.log("세션 발급 완료");});
+
+                        response.render(__dirname + '/views/main/index_로그인.html');
+                    } else {
+                        console.log("비밀번호가 틀렸습니다.");
+                        response.render(__dirname + '/views/login/2/index_login_login.html', { 
+                            Lid : true,
+                            Lpassword : false });
+                    }
+                } else {
+                console.log("아이디가 없습니다.");
+                response.render(__dirname + '/views/login/2/index_login_login.html', { 
+                    Lid : false,
+                    Lpassword : undefined });
+            }
+        })
+    }
+}])
 });
 
 server.post("/main/login/join", function (request, response) { 
@@ -218,10 +304,3 @@ server.post('/main/my/update',async function(request, response){
     console.log('회원 정보 수정 완료');
 
 });
-
-
-/*
-//server.use('/js',express.static('./views/login_page/js'));
-//server.use('/css',express.static('./views/login_page/css'));
-//server.use(express.static(__dirname + '/public')); -> css, javascript 파일 사용을 위해 기본 path를 /public으로 설정
-*/

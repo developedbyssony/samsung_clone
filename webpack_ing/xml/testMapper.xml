@@ -29,5 +29,12 @@
     WHERE
       email =#{id}
   </select>
-
+  <select id="testBasic4">
+    SELECT
+      *
+    FROM
+      buyTable2 
+    WHERE
+      email =#{param}
+  </select>
 </mapper>

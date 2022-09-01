@@ -1,0 +1,366 @@
+@import url('./font/font.css');
+
+html, body {
+    font-family: 'SamsungOne400';
+    width: 100%;
+    height: 100%;
+    word-break:keep-all;
+    word-wrap:break-word;
+    letter-spacing: -0.025em;
+    line-height: 1.5;
+}
+
+* {
+    margin: 0 auto;
+    box-sizing: border-box;
+}
+
+/* reset */
+
+button,
+input,
+select,
+textarea {
+  font-family: 'SamsungOne400', sans-serif;
+  font-size: 16px;
+  background-color: transparent;
+  border: 0; }
+
+button:focus,
+input:focus,
+select:focus,
+textarea:focus {
+    outline: none;
+    box-shadow: none; }
+
+a,
+button {
+  color:inherit;
+  text-decoration: none;
+  cursor: pointer; }
+
+ul,
+oi,
+li {
+  display: inline-block;
+  padding-left: none;
+  list-style: none; }
+
+/* reset */
+
+/* 공통 요소 */
+
+.btn {
+  font-size:15px;
+  border-radius: 22px;
+  margin:2.5px;
+  width: 280px;
+  height: 44px;
+  padding: 8px 20px 7px 20px; 
+  background-color: #ededed;
+  border: none;
+  vertical-align: middle; 
+}
+
+/* 공통 요소 */
+
+/* header Tpye C */
+
+header {
+    position: fixed;
+    z-index: 999;
+    top:0;
+    left: 0;
+    width: 100%;
+    height: 81px;
+    background-color: #FFFFFF;
+    border-bottom: 1px solid #e4e4e4;
+}
+
+.logo img {
+  line-height: 81px;
+  width: 218.203px;
+  height: 18px;
+  margin-bottom: 0;
+  /* 헤더 중간에 정렬 */
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  margin-left:24px;
+}
+
+/* header */
+
+/* body */
+
+body {
+  background-color: #ededed;
+  min-height: 100%;
+  margin: 0;
+  font-family: sans-serif;
+}
+
+
+.col-12 .button {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  /*
+  display: grid;
+  place-items: center;
+  margin-top: 200px;
+  */
+}
+
+.main-inner {
+  position: relative;
+  top:129px;
+  background-color: #fcfcfc;
+  border-radius: 26px;
+  padding: 60px 72px 48px 72px;
+  max-width: 640px;
+  margin: 0 auto;
+  margin-bottom: 118.34px;
+}
+
+.login a {
+  display: flex;
+  justify-content: center;
+}
+
+.login_title {
+  display: inline-block;
+  margin-top: 30px;
+  font-size:39px;
+  line-height: 1.23;
+  color: #0074d4;
+  font-weight: 500;
+}
+
+.underline_text {
+  margin-top: 36px;
+  margin-bottom: 36px;
+  width: 330px;
+  text-align: left;
+}
+
+.underline_text li {
+  margin-bottom: 8px;
+  font-size: 15px;
+  line-height: 1.6;
+  font-weight: bold;
+}
+
+.underline_text li a {
+  text-decoration: unset;
+}
+
+.button_bottom {
+  margin-left: 81px;
+  margin-right: 81px;
+  margin-bottom: 30px;
+}
+
+#id, #password {
+    font-size:18px;
+    line-height: 1.33;
+    width: 482px;
+    margin:2.5px;
+    height: 36px;
+    padding-left: 0;
+    border-bottom: 1px solid gray;
+    /* margin-top: 37px; */
+    margin-bottom: 24px;
+}
+
+#id:focus {
+  border-color: #0072de;
+  border-width: 2px;
+  color: #0072de;
+}
+
+#textbox_top label {
+  display: none;
+}
+
+#textbox_top #textbox_top_text:hover {
+  display: unset;
+  max-width: 100%;
+  font-size: 18px;
+  color: #0072de;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+#id-msg {
+  height: 18px;
+  width: 100%;
+  margin-top: 37px;
+  font-size: 12px;
+  color: #007ede;
+}
+
+#pw-msg {
+  height: 18px;
+  width: 100%;
+  font-size: 12px;
+  color: #007ede;
+}
+
+#password:focus {
+  border-color: #0072de;
+  border-width: 2px;
+  color: #0072de;
+}
+
+#input_form {
+  margin-bottom: 10px;
+}
+
+input[type=checkbox] {
+  display: none;
+}
+
+.check-label {
+  display: flex;
+  align-items: center;
+  position: relative;
+  width: fit-content;
+  font-size: 13px;
+  color: #999999;
+  font-weight: 400;
+  margin: 10px 0 20px;
+  text-align: left;
+  cursor: pointer;
+  vertical-align: middle;
+}
+
+
+.check-label::before {
+  width:18px;
+  height: 18px;
+  border:2px solid #ddd;
+  content:'';
+  border-radius: 50%;
+  margin-right: 10px;
+  cursor:pointer;
+}
+
+.check-label span {
+  position: absolute;
+  white-space: nowrap;
+  top:0;
+  left: 30px;
+}
+
+
+.check-label::after {
+  display: none;
+  position: absolute;
+  left: 3px;
+  content: '';
+  color: #0072de;
+  width: 12px;
+  height: 12px;
+  background-color: #0072de;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.check-label.active::after {
+  display: block;
+}
+
+.btn#submit {
+ margin-top: 41px;
+}
+
+#btn {
+  min-width: 280px;
+  min-height: 44px;
+  padding-left: 49px;
+  padding-right: 14px;
+  background-color: #0074d4;
+  color: #fafafa;
+  font-size:17px;
+  text-align: center;
+}
+
+#login_btn {
+  margin-top: 36px;
+  margin-bottom: 36px;
+}
+
+.btn.google.one-button {
+  background: url(./assets/login/google.png) no-repeat left 4px center;
+  background-size: 36px 36px;
+}
+
+.btn.qr.one-button {
+  background: url(./assets/login/qr-code-icon.png) no-repeat left 4px center;
+  background-size: 36px 36px;
+}
+
+.one-footer {
+  margin-top:610px;
+  margin-left: 62px;
+  margin-right: 62px;
+  padding: 16px 16px 30px 16px;
+  height: 118.34px;
+}
+
+.footer-inner {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  margin: 0 auto;
+  height: 72.344px;
+  font-size: 12px;
+  opacity: 0.8;
+  font-weight: 300;
+}
+
+.footer-inner div:first-of-type {
+  flex-grow: 0;
+  flex-shrink: 0;
+  flex-basis: auto;
+  margin-top: 23px;
+}
+
+.footer-inner .footer-logo {
+  order:1;
+  width: 100%;
+  margin-right: 0;
+}
+
+.footer-inner .footer-logo img{
+  float: right;
+  width: 201px;
+  height: auto;
+  opacity: 1;
+}
+
+.footer-link {
+  order: 2;
+  width: 100%;
+  margin-left: 0;
+}
+
+.footer-link a{
+  color: #252525;
+  padding: 2px 8px;
+}
+
+.footer-address {
+  order: 3;
+  margin-right: 0;
+  font-style: normal;
+  font-stretch: normal;
+  width: auto;
+  font-weight: 500;
+  font-size: 12px;
+  color: #888;
+}

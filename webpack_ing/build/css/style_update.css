@@ -1,0 +1,920 @@
+/**************** 
+font import 적용
+*****************/
+
+@import url('./font/font.css');
+
+html, body {
+    font-family: 'SamsungOne400';
+    width: 100%;
+    height: 100%;
+    word-break:keep-all;
+    word-wrap:break-word;
+    letter-spacing: -0.025em;
+    line-height: 1.5;
+}
+
+* {
+    margin: 0 auto;
+    box-sizing: border-box;
+}
+
+/**************** 
+공통 요소 (button) 시작
+*****************/
+
+.btn-detail {
+    display: inline-block;
+    min-width: 96px;
+    height: 40px;
+    background-color: #000000;
+    border-radius: 40px;
+    padding:  5px 20px;
+    font-size:0;
+    text-align: center;
+}
+
+.btn-detail span {
+    display: inline-block;
+    line-height: 1;
+    text-align: center;
+    color: #FFFFFF;
+    font-size: 14px;  
+    font-weight: 700; 
+}
+/* my 페이지 전용 공통요소 */
+
+.my-title { 
+    font-size: 34px;
+    line-height: 1;
+    float: left;
+}
+
+.tit-update {
+    float: left;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+/* my > update 페이지 전용 공통요소 */
+
+.btn-detail-reverse {
+    display: inline-block;
+    min-width: 96px;
+    height: 40px;
+    background-color: #FFFFFF;
+    border : 1px solid #000000;
+    border-radius: 40px;
+    padding:  13px 20px;
+    font-size:0;
+    text-align: center;
+}
+
+.btn-detail-reverse span {
+    display: inline-block;
+    line-height: 1;
+    text-align: center;
+    color: #000000;
+    font-size: 14px;  
+    font-weight: 700; 
+}
+
+.labeling {
+    display: inline-block;
+    min-width: 96px;
+    height: 26px;
+    border : 1px solid #dd463f;
+    color:#dd463f;
+    border-radius: 30px;
+    padding:  0 10px;
+    line-height: 26px;
+    text-align: center;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+/**************** 
+공통 요소 (button) 끝
+*****************/
+
+/**************** 
+리셋
+*****************/
+  
+  button,
+  input,
+  select,
+  textarea {
+    font-family: 'SamsungOne400', sans-serif;
+    font-size: 16px;
+    background-color: transparent;
+    border: 0; }
+button:focus,
+select:focus,
+textarea:focus {
+      outline: none;
+      box-shadow: none; }
+  
+  a,
+  button {
+    color:inherit;
+    text-decoration: none;
+    cursor: pointer; }
+  
+  ul,
+  ol,
+  li {
+    display: inline-block;
+    padding-left: none;
+    list-style: none; }
+
+   strong {
+        display: inline-block;
+    }
+
+    h1, h2, h3, h4, h5, h6, em, strong {
+        font-weight: 700;
+    }
+img {
+    display: block;
+}
+
+/**************** 
+리셋 끝
+*****************/
+
+/**************** 
+GNB 코드 영역 시작 
+*****************/
+/* GNB */
+/**************** 
+GNB 코드 영역 시작 
+*****************/
+.app-header:before {
+    content: '';
+    position: absolute;
+    top:80px;
+    left: 0;
+    right: 0;
+    height: 0;
+    background-color: #F7F7F7;
+    }
+  
+    .app-header {
+        position: fixed;
+        top:0;
+        left: 0;
+        width: 100%;
+        z-index: 250;
+        background-color: #fff;
+        padding-left: 0;
+        padding-right: 0;
+    }
+  
+    .header {
+        height: 81px;
+        background-color: #fff;
+        border-bottom:1px solid  #ddd;
+        position: fixed;
+        display: flex;
+        top: 0;
+        left: 0;
+        width: 100%;
+        align-items: center;
+        justify-content: space-between;
+        padding-top:0;
+        padding-left: 24px;
+        padding-right: 24px;
+    }
+  
+    .appSearch {
+        width: 100%;
+        padding-top:152px;
+    }
+  
+    .app-header:after {
+        content: '';
+        position: fixed;
+        left: 0;
+        right: 0;
+        height: 1px;
+        background-color: #e4e4e4;
+    }
+        /* 로고 */
+    .ci {
+        display: block;
+        position: relative;
+        width: 223px;
+        height: 100%;
+        margin-top: 3px;
+        margin-left: 0;
+        margin-right: 0;
+    }
+  
+    .logo {
+      position: relative;
+      background: url('assets/sprite@2x.png') no-repeat -2px -1670px;
+      width: 442px;
+      height: 36px;
+      top:23px;
+      left: -76px;
+      transform: scale(0.6);
+      background-color: #fff;
+    }
+  
+    .nav-menu {
+        height: 100%;
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        font-size: 16px;
+        top:0;
+        margin-right: 0;
+        margin-bottom: 0;
+        overflow: hidden;
+        z-index: 999;
+        white-space:nowrap;
+    }
+  
+      /* nav */
+    .nav-menu a {
+        position: relative;
+        display: block;
+        padding: 0 20px;
+        line-height: 60px;
+    }
+  
+    .nav-menu a:after {
+        content: "";
+        position: absolute;
+        bottom:-10px;
+        left:50%;
+        right: 50%;
+        transition: 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+        transform: translate3d(0, 0, 0);
+        height: 3px;
+        background-color: black;
+    }
+  
+    .nav-menu a:hover:after {
+        left: 2px;
+        right: 5px;
+    }
+  
+        /* 드롭다운 */
+    .sub-gnb.menu1.select {
+        position: relative;
+        z-index: 3;
+        top:0px;
+        height: 100%;
+        background-color: #007aff;
+        color: white;
+    }
+  
+    .sub-gnb.menu2.select {
+        content: '';
+        position: relative;
+        z-index: 3;
+        top:0px;
+        height: 100%;
+        background-color: #007aff;
+        color: white;
+    }
+  
+    .sub-gnb.menu3.select {
+        content: '';
+        position: relative;
+        z-index: 3;
+        top:0px;
+        height: 100%;
+        background-color: #007aff;
+        color: white;
+    }
+  
+    .sub-gnb.menu4.select {
+        content: '';
+        position: relative;
+        z-index: 3;
+        top:0px;
+        height: 100%;
+        background-color: #007aff;
+        color: white;
+    }
+  
+    .sub-gnb.menu5.select {
+        content: '';
+        position: relative;
+        z-index: 3;
+        top:0px;
+        height: 100%;
+        background-color: #007aff;
+        color: white;
+    }
+  
+    .sub-gnb.menu6.select {
+        content: '';
+        position: relative;
+        z-index: 3;
+        top:0px;
+        height: 100%;
+        background-color: #007aff;
+        color: white;
+    }
+    
+    .sub-gnb-detail-bundle {
+        position: absolute;
+        z-index: 999;
+        top:81px;
+        left: 0;
+        display: flex;
+        justify-content: center;
+        width: 100%;
+        height: 650px;
+        border-bottom: 1px solid #ddd;
+        background-color: #f7f7f7;
+        transition: height .2s ease-in-out;
+        white-space: nowrap;
+    }
+  
+    .sub-gnb-detail-bundle .sub-gnb {
+        padding-top:22px;
+        padding-left: 30px;
+        padding-right: 256px;
+        border-right: 1px solid #ddd;
+        margin-left: 0;
+        margin-right: 0;
+    }
+  
+   .sub-gnb-detail-bundle strong {
+        padding-left: 33px;
+        margin-top: 40px;
+        margin-bottom: 20px;
+    }
+  
+    .sub-gnb-detail-bundle ul li {
+        display: block;
+        position: relative;
+        font-size: 18px;
+        margin-bottom: 10px;
+        padding-left: 0px;
+    }
+  
+    .nav-menu-item:hover .sub-gnb-detail-bundle .tit {
+        padding-top: 30px;
+    }
+  
+    .nav-menu-item:hover .sub-gnb-detail-bundle .sub-gnb-detail {
+        position: absolute;
+        z-index: 999;
+        padding-top: 30px;
+    }
+    
+    .nav-menu-item > a {
+        position: relative;
+        display: block;
+        margin: 10px;
+        color:black;
+        line-height: 24px;
+        font-weight: 700;
+    }
+  
+    .util {
+        height: 81px;
+        margin-left: 0px;
+        margin-right: 0;
+        display: flex;
+        align-items: center;
+    }
+  
+    .icon-member-session {
+        background: url('assets/sprite@2x.png') no-repeat -2184px -1930px;
+        width: 40px;
+        height: 44px;
+        transform: scale(0.5); 
+    }
+  
+    .gnb-session {
+        padding-left: 20px;
+        padding-right:20px;
+    }
+  
+    .gnb-session a {
+       display: block;
+       margin-top: 5px;
+       margin-bottom: 5px;
+    }
+  
+    .icon-cart {
+        background: url('assets/sprite@2x.png') no-repeat -2182px -1114px;
+        width: 44px;
+        height: 44px;
+        transform: scale(0.5);         
+    }
+  
+    .icon-search {
+          right:0px;
+          background: url('assets/sprite@2x.png') no-repeat -2182px -1726px;
+          width: 44px;
+          height: 44px;
+          transform: scale(0.5);  
+    }
+  
+  /* search 모달 */
+  
+  #appSearch:before {
+    content: '';
+    position: fixed;
+    top:0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background-color: rgba(0,0,0,0.7);
+  }
+  
+  #appSearch {
+    display: none;
+    position: absolute;
+    z-index: 500;
+    top: 0px;
+    left: 0px;
+    padding:0;
+    width: 100%;
+    height: 690px;
+    background-color: #fff;
+  }
+  
+  #appSearch .app-search-inner {
+    position: fixed;
+    display: flex;
+    top:0;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    margin: 0 auto;
+    padding-bottom: 90px;
+    background-color: #fff;
+    width: 100%;
+  }
+  
+  #appSearch .app-search-tit {
+    padding-top:152px;
+    font-size: 44px;
+    line-height: 48px;
+  }
+  
+  #appSearch .app-search-form-wrap {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid black;
+    margin-top:30px;
+    padding-top: 10px;
+    padding-left: 10px;
+    padding-bottom: 8px;
+    width: 870px;
+    height: 58px;
+  }
+  
+  #appSearch .app-search-form-wrap .app-search-form-area{
+    width: 834px;
+    margin-left: 18px;
+  }
+  
+  #appSearch .app-search-form-wrap .app-search-form-area .app-search-form .form_text .input {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+  }
+  
+  .icon-input-search-modal {
+    background: url('assets/sprite@2x.png') no-repeat -2182px -1726px;
+    width: 44px;
+    height: 44px;
+    transform: scale(0.5);
+    margin-top: 5px;
+    margin-left: 500px;
+  }
+  
+  
+  #appSearch .sec-box .app-search-form-favorite {
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   width: 872px;
+   margin-top: 60px;
+  }
+  
+  .key-tit1 {
+    display: block;
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 1;
+    position: relative;
+    left: -392px;
+  }
+  
+  .key-tit2 {
+    padding-top: 30px;
+    display: block;
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 1;
+  }
+  
+  .btn-recent-delete-all {
+    display: inline-block;
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 1;
+    position: relative;
+    left: 700px;
+    text-decoration: underline;
+  }
+  
+  
+  .sec-box .app-search-keyword {
+    position: relative;
+    top: 10px;
+    left: -46px;
+    display: flex;
+    width: 872px;
+    margin-bottom: 30px;
+  }
+  
+  .sec-box .app-search-keyword p {
+    margin-left:25px;
+    margin-right: 0;
+  }
+  
+  .recent-search-keywords {
+    position: relative;
+    top: 10px;
+    left: -359px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    align-content: flex-start;
+    padding-bottom: 90px;
+  }
+  
+  .btn-recent-delete-all span {
+    float: right;
+  }
+  
+  .btn-close {
+    position: absolute;
+    top:100px;
+    right: 100px;
+    transform: scale(400%);
+  }
+  
+  /**************** 
+  GNB 코드 영역 끝 
+  *****************/
+
+/**************** 
+GNB 코드 영역 끝 
+*****************/
+
+
+/**************** 
+브레드 스크럼 
+*****************/
+
+.bread-scrum {
+	position: relative;
+    height: 61px;
+	top: 81px;
+    padding: 20px 24px;
+    border: 1px solid #ddd;
+}
+
+.ic-home {
+	background: url('./assets/sprite@2x_new.png') no-repeat -880px -785px;
+	width: 20px;
+	height: 18px;
+}
+
+.ic-next {
+    background: url('./assets/sprite@2x_new.png') no-repeat -789px -834px;
+	width: 8px;
+	height: 13px;
+}
+
+/**************** 
+브레드 스크럼 끝
+*****************/
+
+.content {
+    position: relative;
+    top: 81px;
+    padding-top: 50px;
+}
+
+
+.sec-box .my-page-top-box {
+    position: relative;
+    min-width: 1440px;
+    width: 100%;
+    padding-left: 24px;
+    padding-right: 24px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.tit-page {
+    top:0;
+}
+
+.input {
+    position: relative;
+    left: 0;
+}
+
+.necessary-txt {
+    float: right;
+}
+
+.row .must-info {
+    padding-top: 60px;
+}
+
+.must-info-list-ul {
+    width: 100%;
+    margin-top: 18px;
+    border-top: 1px solid #000;
+    border-bottom: 1px solid #ddd;
+    padding: 26px 0 45px;
+    margin-bottom: 60px;
+}
+
+.must-info-list-ul > li {
+    display: flex;
+    height: 30px;
+}
+
+.must-info-list-ul > li + li {
+    margin-top: 20px;
+}
+
+.must-info-list-ul > li > label {
+    width: 235px;
+    padding-top: 10px;
+    position: absolute;
+    font-weight: bold;
+    float: left;
+    padding-left:30px;
+}
+
+#phoneNum, #phoneNum_re {
+    border-bottom: 1px solid #a9a9a9;
+}
+
+.form-wrap {
+    position: relative;
+    left: 0;
+    top:0;
+    width: 450px;
+}
+
+.form-wrap .input {
+   position: relative;
+   left: 0;   
+   padding: 3px 0 2px 0;
+   border-bottom: 1px solid #a9a9a9;
+}
+
+.form_radio {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+.form_radio > span {
+    margin-left: 20px;
+}
+
+.radio_box01 {
+    position: relative;
+    top:25px;
+    left: 50px;
+    padding-top: 30px;
+    width: calc(100% - 200px);
+}
+
+#input_address {
+    padding-bottom: 30px;
+}
+
+.radio_list_text {
+    margin-top: 10px;
+}
+.radio-list-btn-box {
+    position: relative;
+    top: 20px;
+    width: 100px;
+}
+
+.must-info-list-ul.adress {
+    padding-bottom: 70px;
+    border-bottom: 1px solid #ddd;
+    margin-bottom: 20px;
+}
+
+.must-info-list-ul.adress > li >label {
+    width: 235px;
+    padding-top: 25px;
+}
+
+.input-list-right-bt-box {
+    float: right;
+    margin-left: 25px;
+}
+
+.main-top h3 {
+    text-align: left;
+}
+
+.main-top p {
+    text-align: right;
+}
+
+.btn-detail-reverse {
+    position: relative;
+    float: right;
+}
+
+#delete {
+    position: relative;
+    top:80px;
+    left: -850px;
+}
+
+.my_sec_cont_box ul {
+	display: flex;
+    flex-direction: row;
+    flex-basis: auto;
+	justify-self: space-between;
+	flex-wrap: nowrap;
+    align-items: stretch;
+    width: 100%;
+	border: 1px solid #ddd;
+}
+
+.my-page-info-table-box {
+    display: flex;
+    margin-top: 24px;    
+}
+
+.border_box {
+    padding-right: 25%;
+}
+
+.my-page-info-table-box h1 {
+    transform: translateY(50%);
+}
+
+
+.input {
+    width: 450px;
+    height: 40px;
+}
+
+.input > input {
+    width: 100%;
+    padding: 3px 0 2px 0;
+}
+
+.add {
+    position: relative;
+    top: 68px;
+}
+
+.my-page-info-table-box {
+	border: 1px solid #ddd;
+	border-radius: 20px;
+	padding: 32px 40px;
+    margin-bottom: 60px;
+}
+
+.myshop_check_info_list ul {
+	display: flex;
+	justify-self: space-between;
+	flex-wrap: wrap;
+	border: 1px solid #ddd;
+	padding: 25px 0;
+	border-radius: 15px;
+}
+
+.icon-trash {
+    display: inline-block;
+    float:right;
+    background: url('assets/sprite@2x_new.png') no-repeat -663px -1089px;
+	width: 44px;
+	height: 50px;
+}
+
+.icon-personal-info {
+    display: inline-block;
+    float:right;
+    background: url('assets/sprite@2x_new.png') no-repeat -1139px -1022px;
+	width: 47px;
+	height: 46px;
+}
+
+.tit_04 {
+	margin-bottom: 21px;
+}
+
+.tit_05 {
+	margin-bottom: 21px;
+}
+
+
+.service-info {
+    background-image: url('./assets/sprite@2x.png') no-repeat -2400px -1424px;
+    width: 72px;
+	height: 72px;
+}
+
+.online-info {
+    background: url('./assets/sprite@2x.png') no-repeat -2400px -1824px;
+	width: 72px;
+	height: 72px;
+}
+
+.product-info {
+    background: url('./assets/sprite@2x.png') no-repeat -2278px -1570px;
+	width: 96px;
+	height: 82px;
+}
+
+.product-self {
+    background: url('./assets/sprite@2x.png') no-repeat -2400px -1022px;
+	width: 72px;
+	height: 76px;
+}
+
+.order-info {
+    background: url('./assets/sprite@2x.png') no-repeat -2398px -630px;
+	width: 76px;
+	height: 60px;
+}
+
+.coupon-info {
+    background: url('./assets/sprite@2x.png') no-repeat -2400px -924px;
+	width: 72px;
+	height: 72px;
+}
+
+.likeproduct-info {
+    background: url('./assets/sprite@2x.png') no-repeat -2400px -1924px;
+	width: 72px;
+	height: 72px;
+}
+
+.answer-info {
+    background: url('./assets/sprite@2x.png') no-repeat -2402px -1526px;
+	width: 68px;
+	height: 68px;
+}
+
+dt {
+    text-align: center;
+}
+
+dd {
+    text-align: center;
+}
+
+dl {
+    padding-left: 80px;
+    padding-right: 80px;
+    border-right: 1px solid grey;
+    height: 100%;
+}
+
+.update-page-btn-bottom {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 95px;
+}
+
+.update-page-btn-bottom {
+    margin-top: 50px;
+}
+
+.update-page-btn-bottom button {
+    margin: 10px;
+}
+
+.tit-adress {
+    display: inline;
+}
+
